@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+</head>
+<body>
+  <div>
+    <form id="register-form">
+      <h2>Company Registration</h2>
+
+      <br>
+
+      <div>
+        <label for="company_name">Company Name</label>
+        <input type="text" id="company_name" name="company_name" placeholder="e.g., Acme Corp" required />
+      </div>
+
+      <br>
+
+      <div>
+        <label for="industry">Industry</label>
+        <input type="text" id="industry" name="industry" placeholder="e.g., Technology" required />
+      </div>
+
+      <br>
+
+      <div>
+        <label for="superfirst_name">Super Admin First Name</label>
+        <input type="text" id="superfirst_name" name="superfirst_name" placeholder="e.g., Jane" required />
+      </div>
+
+      <br>
+
+      <div>
+        <label for="superlast_name">Super Admin Last Name</label>
+        <input type="text" id="superlast_name" name="superlast_name" placeholder="e.g., Doe" required />
+      </div>
+
+      
+      <br>
+
+      <div>
+        <label for="super_email">Super Admin Email</label>
+        <input type="email" id="super_email" name="super_email" placeholder="e.g., jane.doe@example.com" required />
+      </div>
+
+      <div>
+        <label for="super_phone">Super Admin Phone</label>
+        <input type="tel" id="super_phone" name="super_phone" placeholder="e.g., +2348012345678" pattern="^\+?[0-9\s\-]{7,15}" required />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Registration</button>
+    </form>
+  </div>
+
+  <script type="module" src="/js/script.js"></script>
+</body>
+
+</html>

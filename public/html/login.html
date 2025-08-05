@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .login-option {
+      margin-bottom: 20px;
+    }
+    .form-container {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+
+    <div class="login-option">
+      <button onclick="toggleForm('companyForm')">Login as Company</button>
+      <button onclick="toggleForm('individualForm')">Login as Individual</button>
+    </div> 
+
+    <form id="companyForm" class="form-container">
+      <h3>Company Login</h3>
+      <label for="companyId">Company ID:</label>
+      <input type="text" id="companyId" name="companyId"><br><br>
+
+      <label for="companyUserId">User ID:</label>
+      <input type="text" id="companyUserId" name="companyUserId"><br><br>
+
+      <label for="Password">Password:</label>
+      <input type="password" id="upassword" name="upassword"><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <form id="individualForm" class="form-container">
+      <h3>Individual Login</h3>
+      <label for="individualUserId">User ID:</label>
+      <input type="text" id="individualUserId" name="individualUserId"><br><br>
+
+      <label for="individualPassword">Password:</label>
+      <input type="password" id="individualPassword" name="individualPassword"><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script type="module" src="/js/script.js"></script>
+</body>
+</html>
+
