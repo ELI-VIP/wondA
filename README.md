@@ -1,5 +1,7 @@
 /wonda/
   /public/
+    /html/
+      dashboard.html
     index.html
     script.js
   /server/
