@@ -1,4 +1,4 @@
-import BACKEND_URL from '../utils/config.js';
+import { BACKEND_URL } from '../utils/config.js';
 
 export const individualForm = document.getElementById('individualForm');
 if (individualForm) {
