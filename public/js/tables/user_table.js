@@ -1,6 +1,6 @@
 import { BACKEND_URL } from '../utils/config.js';
 
-export const userTable = document.querySelector('#userTable tbody');
+const userTable = document.querySelector('#userTable tbody');
 if (userTable) {
   fetch(`${BACKEND_URL}/api/user`)
     .then(res => res.json())
@@ -11,7 +11,5 @@ if (userTable) {
         userTable.appendChild(tr);
       });
     })
-    .catch(err => {
-      console.error('Failed to load data', err);
-    });
+    .catch(err => console.error('Failed to load data', err));
 }

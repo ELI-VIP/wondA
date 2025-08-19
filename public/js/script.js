@@ -1,21 +1,14 @@
-import { toggleForm } from './form_interactions/form_manipulations.js'
-import { userTable } from './tables/user_table.js';
-import { individualForm, companyForm } from './apis/login_apis.js';
-import { registerForm } from './apis/register_apis.js';
+import { toggleForm } from './form_interactions/form_manipulations.js';
+
+// Just import — their code will auto-run when relevant elements exist
+import './tables/user_table.js';
+import './apis/login_apis.js';
+import './apis/register_apis.js';
 
 window.toggleForm = toggleForm;
 
-
 document.addEventListener('DOMContentLoaded', () => {
-  console.log("✅ DOM fully loaded and script.js is running");
-
-  registerForm;
-
-  userTable;
-
-  individualForm;
-
-  companyForm;
-
+  console.log("✅ Frontend loaded and running...");
 });
+
 
