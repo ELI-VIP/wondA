@@ -2,8 +2,7 @@
 
 const isLocalhost = window.location.hostname === 'localhost';
 
-export const BACKEND_URL = isLocalhost
-  ? 'http://localhost:3000'
+export const BACKEND_URL = 
   : 'https://api.wonda.name.ng';
 
 export default BACKEND_URL;

@@ -15,7 +15,8 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 app.use(cors({
-  origin: ['https://wonda.name.ng'], // your frontend domain
+  origin: ['https://wonda.name.ng',    
+    'https://www.wonda.name.ng'], // your frontend domain
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
