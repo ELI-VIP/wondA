@@ -1,6 +1,6 @@
 export const userTable = document.querySelector('#userTable tbody');
   if (userTable) {
-    fetch('/api/user')
+    fetch(`${BACKEND_URL}/api/user`)
       .then(res => res.json())
       .then(data => {
         data.forEach(row => {
