@@ -6,7 +6,7 @@ const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const base = path.join(__dirname, '..', '..', 'public', 'html');
+const base = path.join(__dirname, '..', '..', 'public','html');
 
 router.get('/', (req, res) => res.sendFile(path.join(base, 'index.html')));
 router.get('/index', (req, res) => res.sendFile(path.join(base, 'index.html')));
