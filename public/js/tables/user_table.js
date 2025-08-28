@@ -1,3 +1,5 @@
+import BACKEND_URL from '../utils/config.js';
+
 export const userTable = document.querySelector('#userTable tbody');
   if (userTable) {
     fetch(`${BACKEND_URL}/api/user`)
@@ -13,3 +15,5 @@ export const userTable = document.querySelector('#userTable tbody');
         console.error('Failed to load data', err);
       });
   }
+
+  
