@@ -14,7 +14,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+  origin: ['https://wonda.name.ng', 'https://www.wonda.name.ng', 'dapper-starburst-68c518.netlify.app', 'http://localhost:3000'], 
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 

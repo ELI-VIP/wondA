@@ -10,7 +10,7 @@ export const registerForm = document.getElementById("register-form");
       const data = Object.fromEntries(formData.entries());
       console.log("➡️ Sending POST with data:", data);
 
-      fetch("/api/registerr", {
+       fetch(`${BACKEND_URL}/api/registerr`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
