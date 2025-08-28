@@ -1,4 +1,4 @@
-
+import BACKEND_URL from '../utils/config.js';
 
 export const registerForm = document.getElementById("register-form");
   if (registerForm) {
