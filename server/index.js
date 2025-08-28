@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 
 // Middleware
 const corsOptions = {
-  origin: ['https://wonda.name.ng', 'https://www.wonda.name.ng', 'dapper-starburst-68c518.netlify.app', 'http://localhost:3000',], 
+  origin: ['https://wonda.name.ng', 'https://www.wonda.name.ng', 'dapper-starburst-68c518.netlify.app', 'http://localhost:3000'], 
   credentials: true
 };
 
