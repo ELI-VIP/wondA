@@ -9,13 +9,5 @@ window.toggleForm = toggleForm;
 document.addEventListener('DOMContentLoaded', () => {
   console.log("✅ DOM fully loaded and script.js is running");
 
-  registerForm;
-
-  userTable;
-
-  individualForm;
-
-  companyForm;
-
 });
 
