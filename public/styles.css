@@ -142,3 +142,29 @@ footer {
   color: #3498db;
   text-decoration: none;
 }
+
+/* Universal spacing helpers */
+.space-below {
+    margin-bottom: 36px;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-container {
+      display: none;
+      margin-top: 10px;
+    }
+
+.login-option {
+      margin-bottom: 20px;
+    }

@@ -13,5 +13,6 @@ router.get('/index', (req, res) => res.sendFile(path.join(base, 'index.html')));
 router.get('/login', (req, res) => res.sendFile(path.join(base, 'login.html')));
 router.get('/dashboard', (req, res) => res.sendFile(path.join(base, 'dashboard.html')));
 router.get('/register', (req, res) => res.sendFile(path.join(base, 'register.html')));
+router.get('/forgotpass', (req, res) => res.sendFile(path.join(base, 'forgotpass.html')));
 
 export default router;

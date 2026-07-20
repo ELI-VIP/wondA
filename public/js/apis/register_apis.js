@@ -1,6 +1,6 @@
 import BACKEND_URL from '../utils/config.js';
 
-export const registerForm = document.getElementById("register-form");
+export  const registerForm = document.getElementById("register-form");
   if (registerForm) {
     registerForm.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -19,11 +19,14 @@ export const registerForm = document.getElementById("register-form");
         .then((result) => {
           console.log("✅ Success:", result);
           alert("Submitted successfully");
+          // reset the form after successful submission
+          registerForm.reset();
         })
         .catch((err) => {
           console.error("❌ Fetch error:", err);
         });
     });
+    
   }
   else {
     console.warn("⚠️ register-form not found on this page.");
