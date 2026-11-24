@@ -1,5 +1,6 @@
 import express from 'express';
 import fetch from 'node-fetch';
+import crypto from 'crypto';
 import { supabaseUrl, headers } from '../utils/supabase.js';
 
 
@@ -22,7 +23,7 @@ router.post('/api/login', async (req, res) => {
         return res.status(401).json({ success: false, message: 'Invalid credentials' });
       }
 
-      user = data[0];
+      const user = data[0];
 
       if(user.otp_required === 'Yes') {
         const otp = generateOTP();
@@ -46,7 +47,60 @@ router.post('/api/login', async (req, res) => {
       res.status(500).json({ success: false, message: error.message });
     }
 
-  } else if (loginType === 'company') {
+  }  else if (loginType === 'companypr') {
+    const { company_ID, cuser_ID, cemail} = req.body;
+
+    try {
+      const response = await fetch(
+        `${supabaseUrl}/rest/v1/comp_users?company_id=eq.${company_ID}&comp_userid=eq.${cuser_ID}&email=eq.${cemail}`,
+        { headers }
+      );
+      const data = await response.json();
+
+      if (!data || data.length === 0) {
+        return res.status(401).json({ success: false, message: 'user not found' });
+      }
+
+      const resetToken = crypto.randomBytes(32).toString('hex');
+      const tokenExpiry = new Date(Date.now() + 15 * 60 * 1000).toISOString();
+
+      await fetch(
+        `${supabaseUrl}/rest/v1/comp_users?company_id=eq.${company_ID}&comp_userid=eq.${cuser_ID}`,
+        {
+          method: 'PATCH',
+          headers: { ...headers, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            reset_token: resetToken,
+            reset_tokenexpiry: tokenExpiry
+          })
+         }
+      );
+
+      const user = data[0];
+
+     /* if(user.otp_required === 'Yes') {
+        const otp = generateOTP();
+        const otpExpiry = new Date(Date.now() + 5 * 60 * 1000); // OTP valid for 5 minutes
+
+        await fetch('${superbaaseUrl}/rest/v1/user?user_id=eq.${individualUserId}', {
+          method: 'PATCH',
+          headers: {
+            ...headers, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ otp: otp, otp_expiry: otpExpiry })
+        });
+
+        console.log(`✉️ Send OTP ${otp} to user email: ${user.email}`);
+
+        return res.json({ success: true, requiresOtp: true, userId: individualUserId, loginType: 'individual' });
+      } */
+
+      res.json({ success: data.length > 0, 
+        resetToken: resetToken });
+    } catch (error) {
+      res.status(500).json({ success: false, message: error.message });
+    }
+
+  }  else if (loginType === 'company') {
     const { companyId, companyUserId, password } = req.body;
 
     try {

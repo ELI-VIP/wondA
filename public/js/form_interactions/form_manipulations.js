@@ -8,8 +8,8 @@ export function toggleForm(formType) {
     companyForm.style.display = 'block';
     individualForm.style.display = 'none';
   } 
-  if( formType === 'company_name_c') {
-    company_name_c.style.display = 'block';
+  if( formType === 'company_pr') {
+    company_pr.style.display = 'block';
     individual_name_c.style.display = 'none';
   }
   if( formType === 'individual_name_c') {

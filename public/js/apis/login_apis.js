@@ -50,3 +50,40 @@ if (companyForm) {
 
 
 
+
+export const company_pr = document.getElementById('company_pr');
+if (company_pr) {
+  company_pr.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const company_ID = document.getElementById('company_ID').value;
+    const cuser_ID = document.getElementById('cuser_ID').value;
+    const cemail = document.getElementById('cemail').value;
+
+    try {
+    const response = await fetch(`${BACKEND_URL}/api/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        loginType: 'companypr',
+        company_ID,
+        cuser_ID,
+        cemail
+      })
+    });
+
+    const result = await response.json();
+   if (result.success && result.resetToken) {
+        // Redirect to password reset page with token in URL
+        window.location.href = `/resetpassword.html?token=${result.resetToken}&type=company`;
+      }
+    else {
+        alert(result.message || 'Invalid details entered');
+      }
+    } catch (error) {
+      console.error('Password reset request error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  });
+}
+
+
